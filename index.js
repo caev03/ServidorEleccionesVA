@@ -31,6 +31,59 @@ connection.query('SELECT * from EleccionesDB.Party_codes LIMIT 5', function(err,
   });
 });
 
+app.get("/dptos", function(req,res){
+    connection.query('SELECT * FROM EleccionesDB.Dptos_codes', function(err, rows, fields){
+        if(!err){
+            console.log('GET/ Dptos_codes');
+            res.send(rows);
+        }
+        else{
+            console.log('Error while performing Query.')
+            res.send("error")
+        }
+    })
+})
+
+app.get("/mncps", function(req,res){
+    connection.query('SELECT * FROM EleccionesDB.Muni_codes', function(err, rows, fields){
+        if(!err){
+            console.log('GET/ Muni_codes');
+            res.send(rows);
+        }
+        else{
+            console.log('Error while performing Query.')
+            res.send("error")
+        }
+    })
+})
+
+app.get("/elctnTp", function(req,res){
+    connection.query('SELECT * FROM EleccionesDB.Elec_type_codes', function(err, rows, fields){
+        if(!err){
+            console.log('GET/ Elec_type_codes');
+            res.send(rows);
+        }
+        else{
+            console.log('Error while performing Query.')
+            res.send("error")
+        }
+    })
+})
+
+app.get("/prt", function(req,res){
+    connection.query('SELECT * FROM EleccionesDB.Party_codes', function(err, rows, fields){
+        if(!err){
+            console.log('GET/ Party_codes');
+            res.send(rows);
+        }
+        else{
+            console.log('Error while performing Query.')
+            res.send("error")
+        }
+    })
+})
+
+
 app.get("/end", function(req,res){
     console.log("cerrando connection")
     connection.end();
