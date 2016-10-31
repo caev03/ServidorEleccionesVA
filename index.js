@@ -32,13 +32,13 @@ connection.query('SELECT * from EleccionesDB.Party_codes LIMIT 5', function(err,
 });
 
 app.get("/dptos", function(req,res){
-    connection.query('SELECT * FROM EleccionesDB.Dptos_codes', function(err, rows, fields){
+    connection.query('SELECT * FROM EleccionesDB.Dpto_codes', function(err, rows, fields){
         if(!err){
-            console.log('GET/ Dptos_codes');
+            console.log('GET/ Dpto_codes');
             res.send(rows);
         }
         else{
-            console.log('Error while performing Query.')
+            console.log(err)
             res.send("error")
         }
     })
